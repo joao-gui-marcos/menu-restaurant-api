@@ -22,4 +22,8 @@ router.patch('/:id',
   (req: Request, res: Response, next: NextFunction) => authToken.verifyToken(req, res, next),
   (req: Request, res: Response) => productController.updateProduct(req, res));
 
+router.delete('/:id',
+  (req: Request, res: Response, next: NextFunction) => authToken.verifyToken(req, res, next),
+  (req: Request, res: Response) => productController.deleteProduct(req, res));
+
 export default router;

@@ -44,6 +44,16 @@ class ProductService {
     return updated;
   }
 
+  public deleteProduct(id: string): IProduct | undefined {
+    const index = this.model.findIndex(product => product.id === id);
+    if (index === -1) {
+      return undefined; // product not found
+    }
+    const deleted = this.model.splice(index, 1);
+    return deleted[0];
+  }
+
+
 }
 
 export default ProductService;
