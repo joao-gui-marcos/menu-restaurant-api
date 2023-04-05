@@ -18,6 +18,16 @@ class ProductController {
     const product = await this.service.getProduct(id);
     return res.status(200).json(product);
   }
+
+  public async createProduct(req: Request, res: Response) {
+    const product = req.body
+    try {
+      const newProduct = await this.service.createProduct(product);
+      return res.status(200).json(newProduct);
+    } catch (err) {
+      return res.status(400).json({ error: "Invalid product structure" });
+    };
+  }
 }
 
 export default ProductController;
