@@ -1,7 +1,9 @@
-interface ICategory {
+interface IProduct {
   id: string;
-  parent: null;
+  categories: null;
   name: string;
+  qty: number,
+  price: number,
 }
 
-export default ICategory;
+export default IProduct;
