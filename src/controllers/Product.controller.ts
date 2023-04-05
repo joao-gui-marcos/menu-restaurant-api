@@ -12,6 +12,12 @@ class ProductController {
     const products = await this.service.getAllProduct();
     return res.status(200).json(products);
   }
+
+  public async getProduct(req: Request, res: Response) {
+    const { id } = req.params;
+    const product = await this.service.getProduct(id);
+    return res.status(200).json(product);
+  }
 }
 
 export default ProductController;

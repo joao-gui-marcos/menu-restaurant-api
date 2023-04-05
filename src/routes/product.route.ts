@@ -10,4 +10,8 @@ router.get('/',
   (req: Request, res: Response, next: NextFunction) => authToken.verifyToken(req, res, next),
   (req: Request, res: Response) => productController.getAll(req, res));
 
+router.get('/:id',
+  (req: Request, res: Response, next: NextFunction) => authToken.verifyToken(req, res, next),
+  (req: Request, res: Response) => productController.getProduct(req, res));
+
 export default router;

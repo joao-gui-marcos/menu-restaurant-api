@@ -7,6 +7,10 @@ class ProductService {
   public getAllProduct(): IProduct[] {
     return this.model;
   }
+
+  public getProduct(id: string): IProduct | undefined {
+    return this.model.find(product => product.id === id);
+  }
 }
 
 export default ProductService;
