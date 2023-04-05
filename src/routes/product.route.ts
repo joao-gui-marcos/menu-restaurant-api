@@ -18,4 +18,8 @@ router.post('/',
   (req: Request, res: Response, next: NextFunction) => authToken.verifyToken(req, res, next),
   (req: Request, res: Response) => productController.createProduct(req, res));
 
+router.patch('/:id',
+  (req: Request, res: Response, next: NextFunction) => authToken.verifyToken(req, res, next),
+  (req: Request, res: Response) => productController.updateProduct(req, res));
+
 export default router;

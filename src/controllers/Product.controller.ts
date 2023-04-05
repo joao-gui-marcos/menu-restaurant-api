@@ -28,6 +28,13 @@ class ProductController {
       return res.status(400).json({ error: "Invalid product structure" });
     };
   }
+
+  public async updateProduct(req: Request, res: Response) {
+    const { id } = req.params;
+    const updatedProduct = req.body;
+    const product = await this.service.updateProduct(id, updatedProduct);
+    return res.status(200).json(product);
+  }
 }
 
 export default ProductController;

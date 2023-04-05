@@ -25,6 +25,25 @@ class ProductService {
     this.model.push(newProduct);
     return newProduct;
   }
+
+  public updateProduct(id: string, updatedProduct: IProduct): IProduct | undefined {
+    const index = this.model.findIndex(product => product.id === id);
+    if (index === -1) {
+      return undefined; // product not found
+    }
+    const { name, qty, price } = updatedProduct;
+    if (!name || !qty || !price) {
+      throw new Error('Invalid product structure');
+    }
+    const updated = {
+      ...this.model[index],
+      ...updatedProduct,
+      id,
+    };
+    this.model[index] = updated;
+    return updated;
+  }
+
 }
 
 export default ProductService;
